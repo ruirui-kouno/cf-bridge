@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan CF Bridge｜CAMPFIRE・Makuake成功者のためのKickstarter越境ローンチ代行</title>
+<meta name="description" content="CAMPFIRE／Makuakeで成功した日本の作り手のための、Kickstarter越境ローンチ代行。英語ページ、送料・関税設計、英語支援者対応、pledge管理まで実務を丸ごと代行。第1期モニター（限定2社）募集中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12263a;
+    --navy-deep:#0c1a29;
+    --gold:#c8a24a;
+    --gold-soft:#e9dcc0;
+    --ink:#1d2733;
+    --muted:#5b6a78;
+    --line:#dde3e8;
+    --bg:#ffffff;
+    --bg-alt:#f4f6f8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+    color:var(--ink);
+    line-height:1.85;
+    font-size:16px;
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+  /* header */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--line);
+  }
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:900;font-size:19px;letter-spacing:.04em;color:var(--navy);text-decoration:none}
+  .logo span{color:var(--gold)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:26px;font-weight:500}
+  nav a:hover{color:var(--navy)}
+  nav a.cta-nav{color:var(--navy);border:1.5px solid var(--navy);padding:7px 16px;border-radius:999px;font-weight:700}
+  nav a.cta-nav:hover{background:var(--navy);color:#fff}
+  /* hero */
+  .hero{background:var(--navy);color:#fff;padding:88px 0 76px}
+  .badge{
+    display:inline-block;border:1px solid var(--gold);color:var(--gold-soft);
+    font-size:13px;font-weight:700;letter-spacing:.08em;
+    padding:5px 14px;border-radius:999px;margin-bottom:28px;
+  }
+  .hero h1{font-size:44px;line-height:1.35;font-weight:900;letter-spacing:.01em;margin-bottom:24px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p.lead{font-size:18px;line-height:2;color:#d7dee6;max-width:760px;margin-bottom:36px}
+  .cta-btn{
+    display:inline-block;background:var(--gold);color:var(--navy-deep);
+    font-weight:900;font-size:17px;text-decoration:none;
+    padding:16px 38px;border-radius:8px;letter-spacing:.03em;
+  }
+  .cta-btn:hover{opacity:.88}
+  .hero .note{margin-top:22px;font-size:14px;color:#9fb0c0}
+  /* flow diagram */
+  .flow{
+    display:flex;align-items:stretch;gap:0;margin-top:52px;flex-wrap:wrap;
+  }
+  .flow .step{
+    flex:1;min-width:150px;background:var(--navy-deep);
+    border:1px solid #24405c;border-radius:10px;padding:16px 14px;text-align:center;
+  }
+  .flow .step b{display:block;font-size:15px;color:#fff;margin-bottom:4px}
+  .flow .step small{font-size:12.5px;color:#9fb0c0;line-height:1.6;display:block}
+  .flow .arrow{display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:20px;padding:0 8px;font-weight:900}
+  /* sections */
+  section{padding:84px 0}
+  section.alt{background:var(--bg-alt)}
+  .kicker{color:var(--gold);font-weight:900;font-size:13px;letter-spacing:.22em;margin-bottom:14px}
+  h2{font-size:30px;font-weight:900;color:var(--navy);line-height:1.5;margin-bottom:20px}
+  .sec-lead{color:var(--muted);max-width:760px;margin-bottom:44px}
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px}
+  .card .num{color:var(--gold);font-weight:900;font-size:14px;letter-spacing:.15em;margin-bottom:8px}
+  .card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:10px}
+  .card p{font-size:15px;color:var(--muted)}
+  /* table */
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:16px 18px;text-align:left;font-size:15px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--navy);color:#fff;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td.hl{font-weight:900;color:var(--navy)}
+  .ours{background:#fdf8ec}
+  .src{font-size:13px;color:var(--muted);margin-top:12px}
+  .calc{
+    margin-top:26px;background:var(--navy);color:#fff;border-radius:12px;padding:28px 30px;
+    display:flex;gap:30px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  }
+  .calc b{font-size:17px}
+  .calc .big{font-size:30px;font-weight:900;color:var(--gold);white-space:nowrap}
+  .calc p{font-size:14.5px;color:#c6d2de;max-width:560px}
+  /* scope */
+  .scope{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .scope .item{border-left:4px solid var(--gold);background:#fff;padding:22px 24px;border-radius:0 12px 12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .scope h3{font-size:17px;color:var(--navy);margin-bottom:8px}
+  .scope p{font-size:15px;color:var(--muted)}
+  /* fit */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .fit .box{border-radius:12px;padding:28px}
+  .fit .ok{background:#eef4ee;border:1px solid #cfdfcf}
+  .fit .ng{background:#f7eeee;border:1px solid #e3cfcf}
+  .fit h3{font-size:17px;margin-bottom:12px;color:var(--navy)}
+  .fit ul{list-style:none;font-size:15px;color:var(--ink)}
+  .fit li{padding:5px 0 5px 22px;position:relative}
+  .fit .ok li::before{content:"○";position:absolute;left:0;color:#3d7a3d;font-weight:900}
+  .fit .ng li::before{content:"×";position:absolute;left:0;color:#a34a4a;font-weight:900}
+  /* steps */
+  .steps{counter-reset:st}
+  .steps .row{display:flex;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .steps .row:last-child{border-bottom:none}
+  .steps .n{
+    counter-increment:st;flex:0 0 44px;height:44px;border-radius:50%;
+    background:var(--navy);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .steps h3{font-size:17px;color:var(--navy);margin-bottom:4px}
+  .steps p{font-size:15px;color:var(--muted)}
+  /* faq */
+  details{border:1px solid var(--line);border-radius:10px;background:#fff;margin-bottom:12px;padding:18px 22px}
+  summary{font-weight:700;color:var(--navy);cursor:pointer;font-size:16px}
+  details p{margin-top:10px;font-size:15px;color:var(--muted)}
+  /* apply */
+  .apply{background:var(--navy);color:#fff}
+  .apply h2{color:#fff}
+  .apply .sec-lead{color:#c6d2de}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:820px}
+  form .full{grid-column:1/-1}
+  label{font-size:13.5px;font-weight:700;display:block;margin-bottom:6px;color:#d7dee6}
+  input,select,textarea{
+    width:100%;padding:12px 14px;border-radius:8px;border:1px solid #33506e;
+    background:#fff;color:var(--ink);font-size:15px;font-family:inherit;
+  }
+  textarea{min-height:110px}
+  .submit{
+    grid-column:1/-1;background:var(--gold);color:var(--navy-deep);border:none;
+    font-weight:900;font-size:17px;padding:16px;border-radius:8px;cursor:pointer;font-family:inherit;
+  }
+  .submit:hover{opacity:.88}
+  .apply .fine{font-size:13px;color:#9fb0c0;margin-top:16px;max-width:820px}
+  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  @media (max-width:760px){
+    .hero h1{font-size:32px}
+    .cards,.scope,.fit,form{grid-template-columns:1fr}
+    nav a:not(.cta-nav){display:none}
+    .flow .arrow{transform:rotate(90deg);width:100%;padding:4px 0}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#">Japan CF <span>Bridge</span></a>
+    <nav>
+      <a href="#problem">課題</a>
+      <a href="#price">料金</a>
+      <a href="#scope">提供範囲</a>
+      <a href="#faq">FAQ</a>
+      <a class="cta-nav" href="#apply">モニター相談</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="badge">第1期モニター募集中｜限定2社</div>
+    <h1>国内で証明した製品を、<em>世界へ。</em></h1>
+    <p class="lead">CAMPFIRE／Makuakeで成功した日本の作り手のための、Kickstarter越境ローンチ代行です。英語ページの制作、送料・関税の設計、英語での支援者対応、終了後のpledge管理まで、海外展開の実務を丸ごと引き受けます。</p>
+    <a class="cta-btn" href="#apply">無料診断・モニター相談に申し込む</a>
+    <p class="note">プラットフォームは自前では持ちません。支援者が集まるKickstarter／Indiegogoの土俵を、そのまま使います。</p>
+    <div class="flow" aria-hidden="true">
+      <div class="step"><b>国内での成功</b><small>CAMPFIRE／Makuakeの実績が土台</small></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>英語ページ制作</b><small>直訳ではなく海外向けに再設計</small></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>送料・関税の設計</b><small>成功しても赤字にしない設計</small></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>英語での支援者対応</b><small>期間中の一次対応を代行</small></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>pledge管理・発送通知</b><small>集まった後の実務まで伴走</small></div>
+    </div>
+  </div>
+</div>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="kicker">PROBLEM</div>
+    <h2>国内の成功が、そのまま世界に届かない理由</h2>
+    <p class="sec-lead">製品の力は証明済みでも、越境には国内CFとはまったく別の実務が4つあります。どれも「製品の良し悪し」とは無関係に、挑戦を止めてしまう壁です。</p>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>英語ページは「翻訳」では足りない</h3>
+        <p>国内ページの直訳では、海外の支援者には刺さりません。冒頭の訴求、リターンの見せ方、信頼の作り方まで、構成そのものを作り直す必要があります。</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>送料と関税を間違えると、成功しても赤字</h3>
+        <p>国ごとに違う国際送料、関税を誰が負担するかの設計。CAMPFIREは海外発送に未対応で、ここは今も起案者の自力に委ねられています。</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>英語の支援者対応の速さが、結果を左右する</h3>
+        <p>公開期間中の質問やクレームへの対応が遅れると、キャンセルと低評価に直結します。時差のある英語対応を、本業と並行で回すのは大きな負担です。</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>集まった後の実務が、一番長い</h3>
+        <p>住所やバリエーションの回収、発送の進捗通知、未回答者への連絡。キャンペーン終了後の数ヶ月こそ、人手がかかる工程です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="price">
+  <div class="wrap">
+    <div class="kicker">PRICE</div>
+    <h2>相場の約3分の1。理由は、実務のAI化です</h2>
+    <p class="sec-lead">既存の人的代行は、翻訳・ページ制作・支援者対応という人手作業が原価の大半を占めます。当サービスはこの3点をワークフロー化し、人の工数を設計と監修に絞ることで価格を下げています。</p>
+    <table>
+      <tr><th style="width:34%">項目</th><th>初期費用</th><th>成功報酬</th></tr>
+      <tr><td>国内の人的代行の相場（小規模プラン）</td><td>〜50万円</td><td>調達額の15〜20%</td></tr>
+      <tr><td>国内の人的代行の相場（中〜大規模）</td><td>50〜300万円</td><td>調達額の10〜15%</td></tr>
+      <tr class="ours"><td class="hl">当サービス（正式価格）</td><td class="hl">148,000円</td><td class="hl">調達額の8%</td></tr>
+      <tr class="ours"><td class="hl">当サービス（第1期モニター・限定2社）</td><td class="hl">49,800円</td><td class="hl">調達額の8%</td></tr>
+    </table>
+    <p class="src">相場はSOMA株式会社「Kickstarter・Indiegogo代行会社5社比較」（2026年版）等の公開情報に基づきます。目標未達（All-or-Nothing不成立）の場合、成功報酬は発生しません。広告費は含まれません（起案者様の実費、運用は助言まで）。</p>
+    <div class="calc">
+      <div>
+        <b>試算：調達額300万円のケース</b>
+        <p>既存の小規模代行では初期費用と成功報酬で総額95〜110万円。当サービス（正式価格）では38.8万円です。</p>
+      </div>
+      <div class="big">38.8万円</div>
+    </div>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="wrap">
+    <div class="kicker">SCOPE</div>
+    <h2>提供範囲：ローンチ実務の4つを丸ごと</h2>
+    <p class="sec-lead">対象プラットフォームはKickstarter／Indiegogo。ページの外側にある「越境の実務」までが範囲です。</p>
+    <div class="scope">
+      <div class="item">
+        <h3>1. 英語ページ生成</h3>
+        <p>国内ページの素材をもとに、海外向けの訴求構成で英語ページ一式を作成。目標金額とリターン設計の助言も含みます。</p>
+      </div>
+      <div class="item">
+        <h3>2. 送料・関税設計</h3>
+        <p>主要配送先ごとの送料テーブルの設計、関税の負担方針の決定、プラットフォームの関税機能の活用設計を行います。</p>
+      </div>
+      <div class="item">
+        <h3>3. 英語支援者対応</h3>
+        <p>公開期間中の英語コメント・メッセージへの一次対応、アップデート投稿の英語化、遅延発生時の告知文まで代行します。</p>
+      </div>
+      <div class="item">
+        <h3>4. pledge管理・発送通知</h3>
+        <p>終了後のサーベイ（住所・バリエーション回収）の設計、未回答者へのリマインド、発送進捗の通知文の作成を行います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="fit">
+  <div class="wrap">
+    <div class="kicker">FIT</div>
+    <h2>対象製品の条件</h2>
+    <p class="sec-lead">初回から責任を持って結果に向き合うため、対象を「軽くて、壊れにくく、規制のない」製品に絞っています。</p>
+    <div class="fit">
+      <div class="box ok">
+        <h3>向いている製品</h3>
+        <ul>
+          <li>文房具・革小物・バッグ</li>
+          <li>金工・木工などの工芸品</li>
+          <li>アウトドア小物</li>
+          <li>ボードゲーム・カードゲーム</li>
+          <li>テキスタイル製品</li>
+        </ul>
+      </div>
+      <div class="box ng">
+        <h3>お受けできない製品</h3>
+        <ul>
+          <li>食品・飲料</li>
+          <li>化粧品</li>
+          <li>医療・健康機器</li>
+          <li>電波を使う製品、リチウム電池内蔵製品</li>
+          <li>大型家電</li>
+        </ul>
+        <p style="font-size:13.5px;color:var(--muted);margin-top:10px">認証・許認可・国際輸送の制限により、責任を持ってお引き受けできないためです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="kicker">FLOW</div>
+    <h2>進み方</h2>
+    <div class="steps">
+      <div class="row"><div class="n">1</div><div><h3>無料診断</h3><p>国内実績と製品を確認し、海外展開の可否と見通しをお伝えします。見込みが薄い場合は、理由も含めて正直にお伝えします。</p></div></div>
+      <div class="row"><div class="n">2</div><div><h3>設計</h3><p>目標金額、リターン構成、送料・関税の方針を決めます。</p></div></div>
+      <div class="row"><div class="n">3</div><div><h3>ページ制作</h3><p>英語ページ一式を作成し、公開前に内容を確認いただきます。</p></div></div>
+      <div class="row"><div class="n">4</div><div><h3>公開・運用</h3><p>期間中の支援者対応とアップデート投稿を代行します。</p></div></div>
+      <div class="row"><div class="n">5</div><div><h3>終了後</h3><p>pledge管理と発送通知まで伴走します。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq">
+  <div class="wrap">
+    <div class="kicker">FAQ</div>
+    <h2>よくある質問</h2>
+    <details>
+      <summary>実績はありますか？</summary>
+      <p>ありません。本サービスは立ち上げ期にあり、第1期モニター（限定2社）を募集しているところです。その分、相場の約3分の1の価格と、工程の全面開示でお応えします。</p>
+    </details>
+    <details>
+      <summary>モニターの条件は何ですか？</summary>
+      <p>CAMPFIRE／Makuakeでの成功実績があること、対象製品の条件に合うこと、調達額・工程・結果を事例として公開させていただけることです。</p>
+    </details>
+    <details>
+      <summary>広告費は含まれますか？</summary>
+      <p>含まれません。広告は起案者様の実費で、当サービスは運用の助言までを行います。出稿すべきかどうかも含めて、無料診断でお伝えします。</p>
+    </details>
+    <details>
+      <summary>製品の発送作業も代行しますか？</summary>
+      <p>発送作業そのものは行いません。送料の設計、住所の回収、発送通知の文面と運用設計までが提供範囲です。</p>
+    </details>
+    <details>
+      <summary>目標未達だった場合、費用はどうなりますか？</summary>
+      <p>成功報酬は発生しません。初期費用のみとなります。</p>
+    </details>
+    <details>
+      <summary>税務や規制の判断もしてもらえますか？</summary>
+      <p>実務上の論点の整理までは行いますが、確定判断については税理士等の専門家へのご相談をお願いしています。</p>
+    </details>
+  </div>
+</section>
+
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div class="kicker">MONITOR</div>
+    <h2>第1期モニター（限定2社）・無料診断の申し込み</h2>
+    <p class="sec-lead">まずは無料診断から。国内での実績と製品をお知らせください。海外展開の可否と見通しを、営業ありきではなく正直にお返しします。</p>
+    <a class="cta-btn" href="https://kouno5.gumroad.com/l/japan-cf-bridge-monitor" target="_blank" rel="noopener">無料診断に申し込む（Gumroadの申込ページへ）</a>
+    <p class="fine">申込ページでは、会社名／ブランド名、国内CFの実績プラットフォーム、プロジェクトURL、相談内容をご記入ください。</p>
+    <p class="fine">本サービスは立ち上げ期のため、第1期モニター（限定2社）のみの募集です。お預かりした情報は診断以外の目的には使用しません。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Japan CF Bridge（越境クラファンAIエージェンシー）</div>
+    <div>第1期モニター募集中</div>
+  </div>
+</footer>
+
+</body>
+</html>
